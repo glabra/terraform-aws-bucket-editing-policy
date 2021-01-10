@@ -10,11 +10,6 @@ terraform {
 data "aws_iam_policy_document" "policy" {
   statement {
     actions = [
-      "s3:GetAccountPublicAccessBlock",
-      "s3:GetBucketAcl",
-      "s3:GetBucketLocation",
-      "s3:GetBucketPolicyStatus",
-      "s3:GetBucketPublicAccessBlock",
       "s3:ListAllMyBuckets",
     ]
     resources = ["*"]
