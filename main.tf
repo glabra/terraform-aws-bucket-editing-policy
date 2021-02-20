@@ -16,12 +16,16 @@ data "aws_iam_policy_document" "policy" {
   }
   
   statement {
-    actions = ["s3:ListBucket"]
-    resources = var.s3_bucket_arns
-  }
-  statement {
-    actions = ["s3:*Object"]
-    resources = [for s in var.s3_bucket_arns : "${s}/*"]
+    actions = [
+      "s3:PutObject",
+      "s3:GetObject",
+      "s3:DeleteObject",
+      "s3:GetBucketLocation",
+      "s3:ListBucketMultipartUploads",
+      "s3:AbortMultipartUpload",
+      "s3:ListMultipartUploadParts",
+    ]
+    resources = flatten([for s in var.s3_bucket_arns : ["${s}", "${s}/*"]])
   }
 }
 
