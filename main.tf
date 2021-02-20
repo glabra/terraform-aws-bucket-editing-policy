@@ -11,6 +11,7 @@ data "aws_iam_policy_document" "policy" {
   statement {
     actions = [
       "s3:ListAllMyBuckets",
+      "s3:HeadBucket",
     ]
     resources = ["*"]
   }
@@ -24,7 +25,6 @@ data "aws_iam_policy_document" "policy" {
       "s3:ListBucketMultipartUploads",
       "s3:AbortMultipartUpload",
       "s3:ListMultipartUploadParts",
-      "s3:HeadBucket",
     ]
     resources = flatten([for s in var.s3_bucket_arns : [s, "${s}/*"]])
   }
