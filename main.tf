@@ -18,9 +18,7 @@ data "aws_iam_policy_document" "policy" {
   
   statement {
     actions = [
-      "s3:PutObject",
-      "s3:GetObject",
-      "s3:DeleteObject",
+      "s3:*Object",
       "s3:GetBucketLocation",
       "s3:ListBucketMultipartUploads",
       "s3:AbortMultipartUpload",
