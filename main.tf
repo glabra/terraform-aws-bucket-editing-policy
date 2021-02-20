@@ -21,7 +21,7 @@ data "aws_iam_policy_document" "policy" {
     sid = "2"
     actions = [
       "s3:*Object",
-      “s3:ListBucket”,
+      "s3:ListBucket",
       "s3:GetBucketLocation",
       "s3:ListBucketMultipartUploads",
       "s3:AbortMultipartUpload",
