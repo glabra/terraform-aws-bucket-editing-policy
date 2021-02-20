@@ -9,6 +9,7 @@ terraform {
 
 data "aws_iam_policy_document" "policy" {
   statement {
+    sid = "1"
     actions = [
       "s3:ListAllMyBuckets",
       "s3:HeadBucket",
@@ -17,6 +18,7 @@ data "aws_iam_policy_document" "policy" {
   }
   
   statement {
+    sid = "2"
     actions = [
       "s3:*Object",
       "s3:GetBucketLocation",
